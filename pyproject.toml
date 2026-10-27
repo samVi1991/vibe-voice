@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vibe-voice"
+version = "0.1.0"
+description = "电脑麦克风上的中文语音助手流水线，以及供后续音箱接入的 WebSocket。"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "sherpa-onnx>=1.10",
+    "sounddevice>=0.5",
+    "websockets>=12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+device = ["opuslib>=3.0.1"]
+
+[project.scripts]
+vibe-voice = "vibe_voice.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vibe_voice*"]
+
+[tool.setuptools.package-data]
+vibe_voice = ["keywords.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
