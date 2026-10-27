@@ -1,0 +1,42 @@
+# 复制为 config.toml 后按需要修改。环境变量优先于这个文件。
+# 不要把真正的 API key 提交进 git。
+
+models_dir = "models"
+num_threads = 2
+stt_language = "zh"
+
+[openai]
+base_url = "https://api.openai.com/v1"
+api_key = ""
+model = "gpt-4o-mini"
+temperature = 0.7
+# max_tokens = 256
+
+[server]
+host = "0.0.0.0"
+port = 8765
+token = ""
+
+[kws]
+# keywords_file = "keywords.txt"
+score = 1.0
+threshold = 0.25
+
+[vad]
+threshold = 0.5
+min_speech_ms = 250
+min_silence_ms = 600
+max_speech_ms = 15000
+speech_pad_ms = 200
+
+[tts]
+# sherpa-onnx-vits-zh-ll 的示例说话人。换音色只改这个数字。
+sid = 2
+speed = 1.0
+max_sentences = 4
+
+[audio]
+sample_rate = 16000
+mic_sample_rate = 16000
+# mic_device = 0
+# speaker_device = 0
